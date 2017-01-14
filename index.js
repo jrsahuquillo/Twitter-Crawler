@@ -14,10 +14,15 @@ const port = process.env.PORT || 3001
 app.use(bodyParser.urlencoded( {extended: false}))
 app.use(bodyParser.json())
 
-var xray = new Xray()
-app.get('/api/index', (req, res) => {
-  res.send(200, {users:[]})
+app.get('/api/log/list', (req, res) => {
+  User.find({}, (err, users) => {
+    if (err) return res.status(500).send({message: `Error al hacer la petición: ${err}`})
+    if(!users) return res.status(404).send({message: 'Users not found'})
+    res.status(200).send({users})
+  })
 })
+
+var xray = new Xray()
 
 app.get('/api/user/:username', (req, res) => {
   var user = xray(`http://twitter.com/${req.params.username}`, {
@@ -29,7 +34,7 @@ app.get('/api/user/:username', (req, res) => {
     following: '.Grid-cell .ProfileNav-item--following .ProfileNav-value',
     followers: ' .Grid-cell .ProfileNav-item--followers .ProfileNav-value'
   })((err,response) => {
-    res.status(200).send({data: response})
+    res.status(200).send(response)
     console.log(response)
     var test = new User({
       name: response.name,
