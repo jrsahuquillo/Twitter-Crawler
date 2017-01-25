@@ -1,9 +1,35 @@
+const express = require('express')
 const User = require('../models/user')
 const Xray = require("x-ray")
+// const Crawler = require('../crawler')
+//
+//
+// var xray = new Xray()
+// function getUser(req,res) {
+//   var nickname = `${req.params.username}`
+//   Crawler.twitterCrawler(res, nickname)
+//   console.log(response)
+//   var userData = new User({
+//     name: response.name,
+//     username: response.username,
+//     image: response.image,
+//     biography: response.biography,
+//     tweets: response.tweets,
+//     following: response.following,
+//     followers: response.followers
+//   })
+//   userData.save((err) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log('success')
+//     }
+//   })
+// }
+
+
 
 var xray = new Xray()
-
-
 function getUser(req, res) {
   var user = xray(`http://twitter.com/${req.params.username}`, {
     name: 'h1 a',
