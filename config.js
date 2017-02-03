@@ -1,4 +1,4 @@
-var MONGODB_URI ="mongodb://username:password@ds01316.mlab.com:1316/log"
+var MONGODB_URI ="mongodb://username:password@ds139899/influencity"
 
 module.exports = {
   port: process.env.PORT || 3001,
