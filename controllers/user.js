@@ -1,7 +1,7 @@
 'use strict'
+
 const express = require('express')
 const User = require('../models/user')
-const Xray = require('x-ray')
 const Crawler = require('../services/crawler')
 
 //Scraps twitter user adding username to url /api/user/username

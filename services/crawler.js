@@ -1,9 +1,10 @@
 'use strict'
 
+const express = require('express')
 const Xray = require('x-ray')
 const User = require('../models/user')
 const userService = require('./user')
-const userCtrl = require('../controllers/user')
+const userControl = require('../controllers/user')
 
 var userSkeleton = {
   name: 'h1 a',
