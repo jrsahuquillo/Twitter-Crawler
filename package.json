@@ -15,9 +15,9 @@
     "mongoose": "^4.7.6"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   },
-
   "engines": {
     "node": "6.9.2"
   }
